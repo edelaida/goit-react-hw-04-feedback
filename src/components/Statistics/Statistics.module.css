@@ -1,0 +1,11 @@
+.stat {
+  padding-left: 40px;
+}
+.text {
+  font-weight: bold;
+}
+.textsum {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(146, 70, 70);
+}
