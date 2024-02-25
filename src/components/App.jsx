@@ -6,42 +6,33 @@ import { useState } from 'react';
 
 export const App = () => {
   const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
+  const [neutral, setNeutral] = useState(2);
+  const [bad, setBad] = useState(4);
 
   const onLeaveFeedback = e => {
     switch (e) {
       case 'good':
         return setGood(prev => prev + 1);
-        break;
       case 'neutral':
         return setNeutral(prev => prev + 1);
-        break;
       case 'bad':
         return setBad(prev => prev + 1);
-        break;
     }
-    console.log(good);
   };
 
-  //   this.setState({ [value]: this.state[value] + 1 });
-
   const countTotalFeedback = () => {
-    console.log(good);
     return good + neutral + bad;
-    // return this.state.good + this.state.neutral + this.state.bad;
   };
 
   const countPositiveFeedbackPercentage = () => {
-    return (setGood / countTotalFeedback) * 100;
-    // return (this.state.good / this.countTotalFeedback()) * 100;
+    return (good / countTotalFeedback()) * 100;
   };
 
   return (
     <div>
       <Button></Button>
       <FeedbackOptions
-        options={Object.keys(useState())}
+        options={['good', 'neutral', 'bad']}
         onLeaveFeedback={onLeaveFeedback}
       ></FeedbackOptions>
       {countTotalFeedback() === 0 ? (
