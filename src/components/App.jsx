@@ -6,17 +6,30 @@ import { useState } from 'react';
 
 export const App = () => {
   const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(2);
-  const [bad, setBad] = useState(4);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+
+  // const onLeaveFeedback = e => {
+  //   console.log(e);
+  //   switch (e) {
+  //     case 'good':
+  //       return setGood(prev => prev + 1);
+  //     case 'neutral':
+  //       return setNeutral(prev => prev + 1);
+  //     case 'bad':
+  //       return setBad(prev => prev + 1);
+  //   }
+  // };
 
   const onLeaveFeedback = e => {
-    switch (e) {
-      case 'good':
-        return setGood(prev => prev + 1);
-      case 'neutral':
-        return setNeutral(prev => prev + 1);
-      case 'bad':
-        return setBad(prev => prev + 1);
+    if (e === 'good') {
+      setGood(prev => prev + 1);
+    }
+    if (e === 'neutral') {
+      setNeutral(prev => prev + 1);
+    }
+    if (e === 'bad') {
+      setBad(prev => prev + 1);
     }
   };
 
